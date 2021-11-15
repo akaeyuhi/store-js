@@ -35,7 +35,7 @@ export class ProductList {
 
 
 export class ProductItem {
-    constructor(id, title, price, img = 'https://placehold.it/200x125') {
+    constructor(id, title, price, img = 'https://placehold.it/200x150') {
         this.title = title;
         this.price = price;
         this._id = id;
@@ -47,7 +47,7 @@ export class ProductItem {
              <img src=${this._img} alt="picture">
              <h3>${this.title}</h3>
              <p>${this.price}</p>
-             <button class="by-btn">Добавить</button>
+             <button class="buy-btn">Добавить</button>
          </div>`;
     }
 
