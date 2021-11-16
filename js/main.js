@@ -3,7 +3,9 @@ import {ProductList} from "./ProductList.js";
 
 'use strict';
 
-const products = new ProductList();
-products.render();
+document.addEventListener('DOMContentLoaded', () => {
+    const products = new ProductList();
+    products.render();
+    console.log(products.price)
+})
 
-console.log(products.price)

@@ -7,7 +7,7 @@ export class ProductList {
     }
 
     _fetchGoods() {
-        // Parse JSON from server
+        // Get JSON from server
         this.goods = [
             {id: 1, name: 'Notebook', price: 1000},
             {id: 2, name: 'Mouse', price: 100},
