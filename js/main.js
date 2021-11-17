@@ -10,13 +10,14 @@ new Vue({
         goods: [],
         filteredProducts: [],
         allProducts: [],
-        searchLine: ''
+        cartProducts: [],
+        searchLine: '',
+        isCartVisible: false,
     },
 
     methods: {
         getItems: List.prototype.getItems,
         filter() {
-            console.log(this.searchLine)
             const regexp = new RegExp(this.searchLine.toLowerCase(), 'i');
             this.filteredProducts = this.allProducts.filter(product => regexp.test(product.title));
         },
@@ -26,6 +27,9 @@ new Vue({
                     new ProductItem(good)
                 )
             }
+        },
+        showCart() {
+            this.isCartVisible = !this.isCartVisible;
         }
     },
     mounted() {

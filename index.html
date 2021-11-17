@@ -13,12 +13,16 @@
     <div class="cart">
       <form action="#" class="search-form">
         <input type="text" class="search-field" v-model="searchLine">
-        <button class="btn-search" type="submit" v-on:click="filter">
+        <button class="btn-search" type="submit" @click="filter">
           <i class="fas fa-search"></i>
         </button>
       </form>
-      <button class="btn-cart" type="button">Корзина</button>
-      <div class="cart-block invisible"></div>
+      <button class="btn-cart" type="button" @click="showCart">Корзина</button>
+      <div class="cart-block" v-bind:class="[isCartVisible ? '' : 'invisible']">
+          <p v-if="cartProducts">Нет данных</p>
+          <div v-else class="cart-items">
+          </div>
+      </div>
     </div>
   </header>
   <main>
