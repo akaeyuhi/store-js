@@ -23,9 +23,7 @@
   </header>
   <main>
     <div class="products">
-      <div class="product-item" v-for="product in this.allProducts" >
-        <div v-html="product.markup"></div>
-      </div>
+      <div class="product-item" v-for="product in this.allProducts" v-html="product.markup"></div>
     </div>
 </main>
 </div>
