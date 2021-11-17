@@ -22,12 +22,18 @@
     </div>
   </header>
   <main>
-    <div class="products"></div>
-  </main>
+    <div class="products">
+      <div class="product-item" v-for="product in this.allProducts" >
+        <div v-html="product.markup"></div>
+      </div>
+    </div>
+</main>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+        integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+        crossorigin="anonymous"></script>
 <script type="module" src="js/main.js"></script>
 </body>
 </html>
