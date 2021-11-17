@@ -8,13 +8,18 @@ new Vue({
     el: '#app',
     data: {
         goods: [],
-        filteredGoods: [],
+        filteredProducts: [],
         allProducts: [],
         searchLine: ''
     },
 
     methods: {
         getItems: List.prototype.getItems,
+        filter() {
+            console.log(this.searchLine)
+            const regexp = new RegExp(this.searchLine.toLowerCase(), 'i');
+            this.filteredProducts = this.allProducts.filter(product => regexp.test(product.title));
+        },
         _initProducts() {
             for(const good of this.goods) {
                 this.allProducts.push(
