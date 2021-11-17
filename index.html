@@ -17,8 +17,8 @@
           <i class="fas fa-search"></i>
         </button>
       </form>
-      <button class="btn-cart" type="button" @click="showCart">Корзина</button>
-      <div class="cart-block" v-bind:class="[isCartVisible ? '' : 'invisible']">
+      <button class="btn-cart" type="button" @click="toggleCart">Корзина</button>
+      <div class="cart-block" v-show="isCartVisible">
           <p v-if="cartProducts">Нет данных</p>
           <div v-else class="cart-items">
           </div>
@@ -26,12 +26,12 @@
     </div>
   </header>
   <main>
-    <div class="products" v-if="searchLine.length !== 0">
+    <div class="products" >
       <div class="product-item" v-for="product in filteredProducts" v-html="product.markup"></div>
     </div>
-    <div class="products" v-else>
-      <div class="product-item" v-for="product in allProducts" v-html="product.markup"></div>
-    </div>
+<!--    <div class="products" v-else>-->
+<!--      <div class="product-item" v-for="product in allProducts" v-html="product.markup"></div>-->
+<!--    </div>-->
   </main>
 </div>
 

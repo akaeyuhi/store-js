@@ -18,17 +18,21 @@ new Vue({
     methods: {
         getItems: List.prototype.getItems,
         filter() {
-            const regexp = new RegExp(this.searchLine.toLowerCase(), 'i');
-            this.filteredProducts = this.allProducts.filter(product => regexp.test(product.title));
+            if (this.searchLine !== '') {
+                const regexp = new RegExp(this.searchLine.toLowerCase(), 'i');
+                this.filteredProducts = this.allProducts.filter(product => regexp.test(product.title));
+            } else this.filteredProducts = [...this.allProducts];
         },
         _initProducts() {
             for(const good of this.goods) {
                 this.allProducts.push(
                     new ProductItem(good)
                 )
+
             }
+            this.filteredProducts = [...this.allProducts];
         },
-        showCart() {
+        toggleCart() {
             this.isCartVisible = !this.isCartVisible;
         }
     },
