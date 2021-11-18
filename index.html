@@ -7,23 +7,25 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-  <div class="logo">Интернет-магазин</div>
-  <div class="cart">
-    <form action="#" class="search-form">
-      <input type="text" class="search-field">
-      <button class="btn-search" type="submit">
-        <i class="fas fa-search"></i>
-      </button>
-    </form>
-    <button class="btn-cart" type="button">Корзина</button>
-    <div class="cart-block invisible"></div>
-  </div>
-</header>
-<main>
-  <div class="products"></div>
-</main>
+<div id="app">
+  <header>
+    <div class="logo">E-shop</div>
+    <div class="header__left">
+      <search @filter="filter"></search>
+      <div class="cart">
+        <cart ref="cart"></cart>
+      </div>
+    </div>
+  </header>
+  <main>
+    <products ref="products"></products>
+  </main>
+</div>
 <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="module" src="js/components/Cart.js"></script>
+<script type="module" src="js/components/Products.js"></script>
+<script src="js/components/Search.js"></script>
 <script type="module" src="js/main.js"></script>
 </body>
 </html>
