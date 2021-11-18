@@ -1,13 +1,14 @@
 import {constants} from "./constants.js";
 import {ProductItem} from "./Item.js";
 
+'use strict';
+
 Vue.component('products', {
     data() {
         return {
             catalogUrl: '/catalogData.json',
             products: [],
             filtered: [],
-            imgCatalog: 'https://placehold.it/200x150',
         }
     },
     methods: {
@@ -16,7 +17,7 @@ Vue.component('products', {
             this.filtered = this.products.filter(el => regexp.test(el.title));
         },
 
-        _process_data(product) {
+        _processData(product) {
             return new ProductItem(product)
         }
     },
@@ -24,21 +25,21 @@ Vue.component('products', {
         this.$parent.getJson(`${constants.API + this.catalogUrl}`)
             .then(data => {
                 for (let product of data) {
-                    this.products.push(this._process_data(product));
-                    this.filtered.push(this._process_data(product));
+                    this.products.push(this._processData(product));
+                    this.filtered.push(this._processData(product));
                 }
             });
     },
 
     template: `
       <div class="products">
-      <product ref="refref" v-for="item of filtered" :key="item.id" :img="imgCatalog" :product="item"></product>
+      <product ref="refref" v-for="item of filtered" :key="item.id" :img="item._img" :product="item"></product>
       </div>
     `
 });
 
 Vue.component('product', {
-    props: ['product', 'img'],
+    props: ['product'],
     data() {
         return {
             cart: this.$root.$refs.cart,
@@ -47,7 +48,7 @@ Vue.component('product', {
 
     template: `
       <div class="product-item">
-      <img :src="img" alt="Some img">
+      <img :src="product._img" alt="Some img">
       <div class="desc">
         <h3>{{ product.title }}</h3>
         <p>{{ product.price }} $</p>
