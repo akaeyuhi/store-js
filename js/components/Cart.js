@@ -15,12 +15,12 @@ Vue.component('cart', {
         async addProduct(product) {
             const data = await this.$parent.getJson(`${constants.API}/addToBasket.json`)
             if (data.result === 1) {
-                let find = this.cartItems.find(el => el.id === product.id);
+                const find = this.cartItems.find(el => el.id === product.id);
                 if (find) {
                     find.quantity++;
                 } else {
-                    let prod = Object.assign({quantity: 1}, product);
-                    this.cartItems.push(prod)
+                    const prod = Object.assign({ quantity: 1 }, product);
+                    this.cartItems.push(this._processData(prod));
                 }
             } else {
                 alert('Error');

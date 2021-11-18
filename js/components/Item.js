@@ -1,8 +1,8 @@
 export class Item {
     constructor(product, img = 'https://placehold.it/200x150') {
-        this.title = product.product_name;
+        this.title = product.product_name ? product.product_name : product.title;
         this.price = product.price;
-        this.id = product.id_product;
+        this.id = product.id_product ? product.id_product : product.id;
         this._img = img;
     }
 }
