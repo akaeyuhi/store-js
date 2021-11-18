@@ -14,7 +14,9 @@ new Vue({
         },
         filter(queryString) {
             let regexp = new RegExp(queryString, 'i');
-            this.filtered = this.products.filter(el => regexp.test(el.title));
+            if(queryString !== '')
+                this.$refs.products.filtered = this.$refs.products.products.filter(el => regexp.test(el.title.toLowerCase()));
+            else this.$refs.products.filtered = this.$refs.products.products
         },
     },
     mounted() {
