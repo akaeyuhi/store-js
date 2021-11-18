@@ -1,5 +1,5 @@
 import {constants} from "./constants.js";
-import {CartItem} from "./Item";
+import {CartItem} from "./Item.js";
 
 'use strict';
 
