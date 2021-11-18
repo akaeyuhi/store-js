@@ -9,36 +9,17 @@
 <body>
 <div id="app">
   <header>
-    <div class="logo">Интернет-магазин</div>
+    <div class="logo">E-shop</div>
     <div class="cart">
-      <form action="#" class="search-form">
-        <input type="text" class="search-field" v-model="searchLine">
-        <button class="btn-search" type="submit" @click="filter">
-          <i class="fas fa-search"></i>
-        </button>
-      </form>
-      <button class="btn-cart" type="button" @click="toggleCart">Корзина</button>
-      <div class="cart-block" v-show="isCartVisible">
-          <p v-if="cartProducts">Нет данных</p>
-          <div v-else class="cart-items">
-          </div>
-      </div>
+      <cart ref="cart"></cart>
     </div>
   </header>
   <main>
-    <div class="products" >
-      <div class="product-item" v-for="product in filteredProducts" v-html="product.markup"></div>
-    </div>
-<!--    <div class="products" v-else>-->
-<!--      <div class="product-item" v-for="product in allProducts" v-html="product.markup"></div>-->
-<!--    </div>-->
+    <products ref="products"></products>
   </main>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
-        integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
-        crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script type="module" src="js/main.js"></script>
 </body>
 </html>
