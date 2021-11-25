@@ -2,10 +2,10 @@
   "name": "js-ctore",
   "version": "1.0.0",
   "description": "Front and back for simple js app",
-  "main": "server.js",
+  "main": "./server/server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "run": "node server.js"
+    "dev": "nodemon ./server/server.js",
+    "run": "node ./server/server.js"
   },
   "repository": {
     "type": "git",
