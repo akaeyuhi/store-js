@@ -1,7 +1,7 @@
 {
-  "name": "store-server",
+  "name": "js-ctore",
   "version": "1.0.0",
-  "description": "Backend for store app",
+  "description": "Front and back for simple js app",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
@@ -19,5 +19,8 @@
   "homepage": "https://github.com/akaeyuhi/js_practice_store#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
