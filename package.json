@@ -1,0 +1,22 @@
+{
+  "name": "store-server",
+  "version": "1.0.0",
+  "description": "Backend for store app",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akaeyuhi/js_practice_store.git"
+  },
+  "author": "akaeyuhi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akaeyuhi/js_practice_store/issues"
+  },
+  "homepage": "https://github.com/akaeyuhi/js_practice_store#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
