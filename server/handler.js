@@ -15,7 +15,7 @@ const handler = (req, res, action, file) => {
             await fs.writeFile(file, newCart).catch(() => res.send('{"result": 0}'))
             res.send('{"result": 1}');
         })
-        .catch();
+        .catch(err => res.sendStatus(404, JSON.stringify({result: 0, text: err})));
 };
 
 module.exports = handler;
