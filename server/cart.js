@@ -10,7 +10,14 @@ const change = (cart, req) => {
     return JSON.stringify(cart, null, 4);
 };
 
+const remove = (cart, req) => {
+    const find = cart.contents.find(el => el.id_product === +req.params.id);
+    cart.split(cart.indexOf(find), 1);
+    return JSON.stringify(cart, null, 4);
+};
+
 module.exports = {
     add,
     change,
+    remove
 };

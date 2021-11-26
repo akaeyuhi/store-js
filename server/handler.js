@@ -6,6 +6,7 @@ const cart = require('./cart.js');
 const actions = {
     add: cart.add,
     change: cart.change,
+    remove: cart.remove
 };
 
 const handler = (req, res, action, file) => {
