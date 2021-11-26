@@ -23,13 +23,12 @@ Vue.component('cart', {
             }
         },
         async remove(item) {
-            const data = await this.$parent.getRequest(`/deleteFromBasket.json`)
-            if (data.result === 1) {
-                if (item.quantity > 1) {
-                    item.quantity--;
-                } else {
-                    this.cartItems.splice(this.cartItems.indexOf(item), 1)
-                }
+            if (item.quantity > 1) {
+                await this.$parent.putRequest(`/api/cart/${item.id}`, {quantity: -1});
+                item.quantity--;
+            } else {
+                await this.$parent.deleteRequest(`/api/cart/${item.id}`, item);
+                this.cartItems.splice(this.cartItems.indexOf(item), 1)
             }
         },
 
