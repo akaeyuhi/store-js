@@ -4,8 +4,8 @@
   "description": "Front and back for simple js app",
   "main": "./server/server.js",
   "scripts": {
-    "dev": "nodemon ./server/server.js",
-    "run": "node ./server/server.js"
+    "dev": "nodemon --ignore ./server/db ./server/server.js",
+    "start": "node ./server/server.js"
   },
   "repository": {
     "type": "git",

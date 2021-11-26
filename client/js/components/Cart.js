@@ -5,7 +5,7 @@ import {CartItem} from "./Item.js";
 Vue.component('cart', {
     data() {
         return {
-            cartUrl: '/api/cart/',
+            cartUrl: '/api/cart',
             cartItems: [],
             showCart: false,
         }
@@ -14,8 +14,7 @@ Vue.component('cart', {
         async addProduct(product) {
             const find = this.cartItems.find(el => el.id === product.id);
             if (find) {
-                await this.$parent.putRequest(`${this.cartUrl}${find.id}`, {quantity: find.quantity});
-                find.quantity++;
+                await this.$parent.putRequest(`${this.cartUrl}/${find.id}`, {quantity: ++find.quantity});
             } else {
                 const prod = Object.assign({quantity: 1}, product);
                 const response = await this.$parent.postRequest(`${this.cartUrl}`, prod);
@@ -24,11 +23,11 @@ Vue.component('cart', {
         },
         async remove(item) {
             if (item.quantity > 1) {
-                await this.$parent.putRequest(`${this.cartUrl}${item.id}`, {quantity: -1});
-                item.quantity--;
+                const data = await this.$parent.putRequest(`${this.cartUrl}/${item.id}`, {quantity: -1});
+                if(data.result === 1) item.quantity--;
             } else {
-                await this.$parent.deleteRequest(`${this.cartUrl}${item.id}`, item);
-                this.cartItems.splice(this.cartItems.indexOf(item), 1)
+                const data = await this.$parent.deleteRequest(`${this.cartUrl}/${item.id}`, item);
+                if(data.result === 1) this.cartItems.splice(this.cartItems.indexOf(item), 1)
             }
         },
 
