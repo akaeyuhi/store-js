@@ -7,10 +7,11 @@ export class Item {
     }
 }
 
-export class ProductItem extends Item {}
+export class ProductItem extends Item {
+}
 
 export class CartItem extends Item {
-    constructor(el, img = 'https://placehold.it/50x100'){
+    constructor(el, img = 'https://placehold.it/50x100') {
         super(el, img);
         this.quantity = el.quantity;
     }

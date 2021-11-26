@@ -1,11 +1,9 @@
-
-
 'use strict';
 
 new Vue({
     el: '#app',
     methods: {
-        getJson(url){
+        getJson(url) {
             return fetch(url)
                 .then(result => result.json())
                 .catch(error => {
@@ -14,7 +12,7 @@ new Vue({
         },
         filter(queryString) {
             let regexp = new RegExp(queryString, 'i');
-            if(queryString !== '')
+            if (queryString !== '')
                 this.$refs.products.filtered = this.$refs.products.products.filter(el => regexp.test(el.title.toLowerCase()));
             else this.$refs.products.filtered = this.$refs.products.products
         },

@@ -19,7 +19,7 @@ Vue.component('cart', {
                 if (find) {
                     find.quantity++;
                 } else {
-                    const prod = Object.assign({ quantity: 1 }, product);
+                    const prod = Object.assign({quantity: 1}, product);
                     this.cartItems.push(this._processData(prod));
                 }
             } else {

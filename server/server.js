@@ -12,10 +12,10 @@ app.get('/api/products', async (req, res) => {
     fs.readFile('./server/db/products.json', 'utf-8')
         .then(data => {
             res.send(data);
-    })
+        })
         .catch(err => {
-        res.send(JSON.stringify({result: 0, text: err}));
-    });
+            res.send(JSON.stringify({result: 0, text: err}));
+        });
 });
 
 const port = process.env.PORT || 3000;
