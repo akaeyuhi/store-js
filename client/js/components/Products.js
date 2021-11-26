@@ -1,4 +1,3 @@
-import {constants} from "./constants.js";
 import {ProductItem} from "./Item.js";
 
 'use strict';
@@ -6,7 +5,7 @@ import {ProductItem} from "./Item.js";
 Vue.component('products', {
     data() {
         return {
-            catalogUrl: '/catalogData.json',
+            catalogUrl: '/api/products',
             products: [],
             filtered: [],
         }
@@ -17,7 +16,7 @@ Vue.component('products', {
         }
     },
     mounted() {
-        this.$parent.getJson(`${constants.API + this.catalogUrl}`)
+        this.$parent.getRequest(this.catalogUrl)
             .then(data => {
                 for (let product of data) {
                     this.products.push(this._processData(product));

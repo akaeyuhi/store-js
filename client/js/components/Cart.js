@@ -1,4 +1,3 @@
-import {constants} from "./constants.js";
 import {CartItem} from "./Item.js";
 
 'use strict';
@@ -13,21 +12,18 @@ Vue.component('cart', {
     },
     methods: {
         async addProduct(product) {
-            const data = await this.$parent.getJson(`${constants.API}/addToBasket.json`)
-            if (data.result === 1) {
-                const find = this.cartItems.find(el => el.id === product.id);
-                if (find) {
-                    find.quantity++;
-                } else {
-                    const prod = Object.assign({quantity: 1}, product);
-                    this.cartItems.push(this._processData(prod));
-                }
+            const find = this.cartItems.find(el => el.id === product.id);
+            if (find) {
+                await this.$parent.putRequest(`/api/cart/${find.id}`, {quantity: find.quantity});
+                find.quantity++;
             } else {
-                alert('Error');
+                const prod = Object.assign({quantity: 1}, product);
+                const response = await this.$parent.postRequest(`/api/cart`, prod);
+                if (response.result === 1) this.cartItems.push(this._processData(prod));
             }
         },
         async remove(item) {
-            const data = await this.$parent.getJson(`${constants.API}/deleteFromBasket.json`)
+            const data = await this.$parent.getRequest(`/deleteFromBasket.json`)
             if (data.result === 1) {
                 if (item.quantity > 1) {
                     item.quantity--;
@@ -42,7 +38,7 @@ Vue.component('cart', {
         }
     },
     mounted() {
-        this.$parent.getJson(`${constants.API + this.cartUrl}`)
+        this.$parent.getJson(this.cartUrl)
             .then(data => {
                 for (let product of data.contents) {
                     this.cartItems.push(this._processData(product));

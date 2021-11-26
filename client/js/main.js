@@ -3,7 +3,7 @@
 new Vue({
     el: '#app',
     methods: {
-        getJson(url) {
+        getRequest(url) {
             return fetch(url)
                 .then(result => result.json())
                 .catch(error => {
