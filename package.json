@@ -1,5 +1,5 @@
 {
-  "name": "js-ctore",
+  "name": "js-store",
   "version": "1.0.0",
   "description": "Front and back for simple js app",
   "main": "./server/server.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/akaeyuhi/js_practice_store.git"
+    "url": "git+https://github.com/akaeyuhi/store-git"
   },
   "author": "akaeyuhi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/akaeyuhi/js_practice_store/issues"
+    "url": "https://github.com/akaeyuhi/store-js/issues"
   },
-  "homepage": "https://github.com/akaeyuhi/js_practice_store#readme",
+  "homepage": "https://github.com/akaeyuhi/store-js#readme",
   "dependencies": {
     "express": "^4.17.1"
   },
